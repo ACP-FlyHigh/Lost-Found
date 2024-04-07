@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="homes">
+
+        <form enctype="multipart/form-data">
+     
+          <label for="item">Item:</label>
+          <input type="text" name="item" id="item" v-model="form.item" required>
+          
+          <label for="image">Image:</label>
+          <input type="file" ref="image" name="image" id="image" accept=".jpg, .jpeg, .png" required>
+     
+          <label for="location">Location:</label>
+          <input type="text" name="location" id="location" v-model="form.location" required>
+       
+          <label for="date_lost">Date Lost:</label>
+          <input type="date" name="date_lost" id="date_lost" v-model="form.date_lost" required>
+     
+          <label for="description">Description:</label>
+          <textarea name="description" id="description" v-model="form.description" required></textarea>
+     
+        
+      
+          <!-- <button type="submit" v-if="form.isSave" @click="save">Submit</button> -->
+     </form>
+        <button type="button" v-show="isReport" @click="save"> Report </button>
+     
+        <table>
+                 <thead>
+                     <tr>
+                         
+                         <th>Item Name</th>
+                         <th>Image</th>
+                         <th>Location</th>
+                         <th> Date Lost</th>
+                         <th>Description</th>
+                         <th>Status</th>
+                         
+                     </tr>
+                 </thead>
+                 <tbody>
+                    <tr v-for="item in items">
+                        <td>{{ item.Item }}</td>
+                        <td>{{ item.image }}</td>
+                        <td>{{ item.location }}</td>
+                        <td>{{ item.date_lost }}</td>
+                        <td>{{ item.description }}</td>
+                        <td>{{ item.status }}</td>
+                    </tr>
+                 </tbody>
+             </table>
+        
+        </div>
+
+     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+    <!-- <script src="lib/vue.global.js"></script> 
+    <script src="https://unpkg.com/vue@2"></script> -->
+    <script src="app/home.js"></script>
+</body>
+</html>
